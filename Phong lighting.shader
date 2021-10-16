@@ -50,7 +50,6 @@ Shader "Custom/Phong lighting"
                 float3 normalVector = v.normal;
                 normalVector = normalize(normalVector);
                 float3 lightSrc = _WorldSpaceLightPos0.xyz;
-                
                 float diff = max(0.0,dot(lightSrc,normalVector));
                 float4 diffuse =float4(diff*_LightColor0.rgb,1);
                 
@@ -58,7 +57,6 @@ Shader "Custom/Phong lighting"
                 float3 camera = _WorldSpaceCameraPos; 
                 float3 view = normalize(camera - v.worldPos); 
                 float3 h = normalize(lightSrc + view); 
-
                 float specular = max(0,dot(h,normalVector));
                 float3 spe = pow(specular,32) * _LightColor0.rgb;
 
